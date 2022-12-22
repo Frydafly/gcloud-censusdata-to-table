@@ -2,7 +2,6 @@
 # Import the libraries
 import os
 from google.cloud import bigquery
-import google.auth
 import json
 import csv
 
