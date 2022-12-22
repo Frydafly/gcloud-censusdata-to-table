@@ -11,8 +11,9 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
 # ask user the name of the dataset they will write to
 dataset_id = input("Enter the name of the dataset in bigquery you want to write to: ")
-table_id = input("Enter the name of the table in bigquery you want to write to: ")
-location = input("Enter the location of the table in bigquery you want to write to: ")   
+table_id = input("Enter the name of the NEW table in bigquery you want to write to: ")
+# set US as the default location
+location = 'US'
 
 def read_service_account_key():
     # Read the service account key file
@@ -33,8 +34,8 @@ def read_sql_query():
 
     return query
 
-# create bigquery table from query
 def run_query_and_load_to_bq(project_id, dataset_id, table_id, query, location):
+    
     # Create a client object
     client = bigquery.Client(project=project_id)
     
